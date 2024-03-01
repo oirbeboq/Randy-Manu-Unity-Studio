@@ -47,11 +47,6 @@ public class SoundSystem : MonoBehaviour
 
     }
 
-    public void Start()
-    {
-
-    }
-
     public void PlaySound(string name)
     {
 
