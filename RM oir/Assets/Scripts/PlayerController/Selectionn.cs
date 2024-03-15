@@ -22,10 +22,12 @@ public class Selectionn : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
+           
             Debug.DrawRay(transform.position, hit.point, Color.red);
             var selection = hit.transform;
             if (selection.CompareTag(selectableTag))
             {
+                Debug.Log("HITT");
                 var selectionRenderer = selection.GetComponent<Renderer>();
                 if (selectionRenderer != null)
                 {
