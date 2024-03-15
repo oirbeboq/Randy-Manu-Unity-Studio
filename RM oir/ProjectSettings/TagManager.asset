@@ -7,6 +7,7 @@ TagManager:
   - CinemachineTarget
   - slider
   - Selectable
+  - cameraZone
   layers:
   - Default
   - TransparentFX
