@@ -8331,8 +8331,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restPosition: {x: 0, y: 0, z: 0}
   cameraPosition: {fileID: 484271560}
-  bobSpeed: 5
-  bobAmount: 0.15
+  bobSpeed: 6
+  bobAmount: 0.3
 --- !u!1001 &928160056
 PrefabInstance:
   m_ObjectHideFlags: 0
