@@ -850,7 +850,7 @@ MonoBehaviour:
   slideForce: 20
   slideCounterMovement: 0.2
   sliding: 0
-  jumpForce: 500
+  jumpForce: 350
   jumping: 0
   sprinting: 0
   crouching: 0
