@@ -11,6 +11,7 @@ public class CameraHeadBob : MonoBehaviour
     [Header("Settings")]
     public float bobSpeed = 4.8f;
     public float bobAmount = 0.05f;
+ 
 
     private float timer = Mathf.PI / 2;
 

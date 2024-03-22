@@ -246,7 +246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8183848307647736857, guid: 1fb1e90a299a59944a881102fd233ec6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.39
+      value: 2.16
       objectReference: {fileID: 0}
     - target: {fileID: 8183848307647736857, guid: 1fb1e90a299a59944a881102fd233ec6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1072,7 +1072,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8183848307647736857, guid: 1fb1e90a299a59944a881102fd233ec6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.39
+      value: 2.51
       objectReference: {fileID: 0}
     - target: {fileID: 8183848307647736857, guid: 1fb1e90a299a59944a881102fd233ec6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1156,7 +1156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8183848307647736857, guid: 1fb1e90a299a59944a881102fd233ec6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.78
+      value: -9.96
       objectReference: {fileID: 0}
     - target: {fileID: 8183848307647736857, guid: 1fb1e90a299a59944a881102fd233ec6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4813,8 +4813,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restPosition: {x: 0, y: 0, z: 0}
   cameraPosition: {fileID: 1704051590}
-  bobSpeed: 6
-  bobAmount: 0.4
+  bobSpeed: 4.8
+  bobAmount: 0.05
 --- !u!114 &1815369291
 MonoBehaviour:
   m_ObjectHideFlags: 0
