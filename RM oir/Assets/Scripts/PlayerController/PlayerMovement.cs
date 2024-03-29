@@ -35,8 +35,10 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Jumping")]
     private bool readyToJump = true;
+    private bool canDoubleJump;
     private float jumpCooldown = 0.25f;
     public float jumpForce = 550f;
+    
 
     //Input
     float x, y;
@@ -189,6 +191,7 @@ public class PlayerMovement : MonoBehaviour
         if (grounded && readyToJump)
         {
             readyToJump = false;
+            canDoubleJump = true;
 
             //Add jump forces
             rb.AddForce(Vector2.up * jumpForce * 1.5f);
@@ -208,6 +211,7 @@ public class PlayerMovement : MonoBehaviour
     private void ResetJump()
     {
         readyToJump = true;
+        canDoubleJump = false;
     }
 
     private float desiredX;
