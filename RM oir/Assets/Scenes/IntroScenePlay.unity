@@ -1856,6 +1856,7 @@ GameObject:
   - component: {fileID: 364801492}
   - component: {fileID: 364801491}
   - component: {fileID: 364801490}
+  - component: {fileID: 364801494}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1938,6 +1939,7 @@ MonoBehaviour:
   idleSpeed: 0
   walkSpeed: 9
   sprintSpeed: 15
+  slideSpeed: 0
   dashSpeed: 20
   dashSpeedChangeFactor: 0
   maxYSpeed: 0
@@ -1963,6 +1965,7 @@ MonoBehaviour:
   dashing: 0
   checkPoint: {x: 0, y: 0, z: 0}
   gravity: 10
+  sliding: 0
   Arms: {fileID: 730259810}
 --- !u!54 &364801493
 Rigidbody:
@@ -1991,6 +1994,27 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &364801494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364801488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 215c164ce00bddd41a1a38241d32ac44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orientation: {fileID: 1556507424}
+  playerObj: {fileID: 364801489}
+  maxSlideTime: 0.75
+  slideForce: 200
+  slideYScale: 0.3
+  slideKey: 101
+  cam: {fileID: 817330662}
+  camTilt: 10
+  camTiltTime: 10
 --- !u!1 &389610621 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5886835368817038030, guid: a0417a864bf8ba64589d5b9d3ff07618, type: 3}

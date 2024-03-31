@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private float moveSpeed;
     public float walkSpeed;
     public float sprintSpeed;
+    public float slideSpeed;
 
     public float dashSpeed;
     public float dashSpeedChangeFactor;
@@ -63,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
         sprinting,
         crouching,
         dashing,
+        sliding,
         air
     }
 
@@ -78,6 +80,8 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 checkPoint;
     private bool slide = false;
     public float gravity = 10.0f;
+
+    public bool sliding;
 
     [Header("Animation")]
     public GameObject Arms;
@@ -157,7 +161,16 @@ public class PlayerMovement : MonoBehaviour
     private bool keepMomentum;
     private void StateHandler()
     {
+        if (sliding)
+        {
+            state = MovementState.sliding;
 
+            if (OnSlope() && rb.velocity.y < 0.1f)
+                desiredMoveSpeed = slideSpeed;
+
+            else
+                desiredMoveSpeed = sprintSpeed;
+        }
         // Mode - Dashing
         if (dashing)
         {
@@ -259,7 +272,7 @@ public class PlayerMovement : MonoBehaviour
         // on slope
         if (OnSlope() && !exitingSlope)
         {
-            rb.AddForce(GetSlopeMoveDirection() * moveSpeed * 20f, ForceMode.Force);
+            rb.AddForce(GetSlopeMoveDirection(moveDirection) * moveSpeed * 20f, ForceMode.Force);
 
             if (rb.velocity.y > 0)
                 rb.AddForce(Vector3.down * 80f, ForceMode.Force);
@@ -326,7 +339,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    private bool OnSlope()
+    public bool OnSlope()
     {
         if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.3f))
         {
@@ -337,7 +350,7 @@ public class PlayerMovement : MonoBehaviour
         return false;
     }
 
-    private Vector3 GetSlopeMoveDirection()
+    public Vector3 GetSlopeMoveDirection(Vector3 direction)
     {
         return Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
     }
