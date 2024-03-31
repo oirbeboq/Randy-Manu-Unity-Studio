@@ -16,7 +16,7 @@ public class WallRun : MonoBehaviour
     [SerializeField] private float wallRunJumpForce;
 
     [Header("Camera")]
-    [SerializeField] private Camera cam;
+    [SerializeField] public Camera cam;
     [SerializeField] private float fov;
     [SerializeField] private float wallRunfov;
     [SerializeField] private float wallRunfovTime;
@@ -112,10 +112,8 @@ public class WallRun : MonoBehaviour
     {
         rb.useGravity = true;
 
-        if (canFov)
-        {
-            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, fov, wallRunfovTime * Time.deltaTime);
-        }
+        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, 60f, wallRunfovTime * Time.deltaTime);
+        
 
         tilt = Mathf.Lerp(tilt, 0, camTiltTime * Time.deltaTime);
     }

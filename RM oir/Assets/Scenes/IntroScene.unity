@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.86282015, g: 0.8625398, b: 0.86282015, a: 1}
+  m_IndirectSpecularColor: {r: 0.8611034, g: 0.86092585, b: 0.8611034, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4336,7 +4336,7 @@ MonoBehaviour:
   wallDistance: 0.6
   minimumJumpHeight: 1.5
   wallRunGravity: 1
-  wallRunJumpForce: 10
+  wallRunJumpForce: 20
   cam: {fileID: 1746501627}
   fov: 60
   wallRunfov: 100
@@ -4372,28 +4372,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752b0edb727a8ff4084434932e1ff4b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orientation: {fileID: 1571726010}
-  moveSpeed: 1000
-  maxSpeed: 10
-  grounded: 0
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 8
-  counterMovement: 0.175
-  maxSlopeAngle: 35
-  maxWalkSpeed: 9
-  maxSprintSpeed: 14
-  acceleration: 10
-  slideForce: 20
-  slideCounterMovement: 0.2
-  sliding: 0
+  walkSpeed: 0
+  sprintSpeed: 0
+  dashSpeed: 0
+  dashSpeedChangeFactor: 0
+  maxYSpeed: 0
+  groundDrag: 0
   jumpForce: 350
+  jumpCooldown: 0
+  airMultiplier: 0
   jumping: 0
-  sprinting: 0
-  crouching: 0
+  readyToJump: 0
+  crouchSpeed: 0
+  crouchYScale: 0
   jumpKey: 32
   sprintKey: 304
   crouchKey: 306
+  playerHeight: 0
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 8
+  grounded: 0
+  maxSlopeAngle: 35
+  orientation: {fileID: 1571726010}
+  state: 0
+  dashing: 0
   checkPoint: {x: 0, y: 0, z: 0}
   gravity: 10
 --- !u!54 &893310176
