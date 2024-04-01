@@ -65,22 +65,10 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody rb;
 
-    public MovementState state;
-    public enum MovementState
-    {
-        idle,
-        walking,
-        sprinting,
-        crouching,
-        dashing,
-        sliding,
-        air
-    }
-
     public bool dashing;
 
     private bool canMove = true;
-  
+
     private bool isStuned = false;
     private bool wasStuned = false; //If player was stunned before get stunned another time
     private float pushForce;
@@ -95,6 +83,21 @@ public class PlayerMovement : MonoBehaviour
     [Header("Animation")]
     public GameObject Arms;
     Animator ArmsAnimator;
+
+
+    public MovementState state;
+    public enum MovementState
+    {
+        idle,
+        walking,
+        sprinting,
+        crouching,
+        dashing,
+        sliding,
+        air
+    }
+
+  
 
     private void Awake()
     {
