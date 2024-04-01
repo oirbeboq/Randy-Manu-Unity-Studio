@@ -2017,14 +2017,15 @@ MonoBehaviour:
   playerObj: {fileID: 364801489}
   maxSlideTime: 0.75
   slideForce: 200
-  slideYScale: 0.3
+  slideYScale: 0.2
   slideKey: 101
   cam: {fileID: 817330662}
   fov: 60
   slidefov: 110
   slidefovTime: 10
-  camTilt: 50
+  camTilt: 80
   camTiltTime: 10
+  Arms: {fileID: 730259810}
 --- !u!1 &389610621 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5886835368817038030, guid: a0417a864bf8ba64589d5b9d3ff07618, type: 3}

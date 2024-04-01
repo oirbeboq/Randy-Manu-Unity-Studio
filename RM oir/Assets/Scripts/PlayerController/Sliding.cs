@@ -31,11 +31,14 @@ public class Sliding : MonoBehaviour
 
     public float tilt { get; private set; }
 
+    public GameObject Arms;
+    Animator ArmsAnimator;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         pm = GetComponent<PlayerMovement>();
+        ArmsAnimator = Arms.GetComponent<Animator>();
 
         startYScale = playerObj.localScale.y;
     }
@@ -45,7 +48,7 @@ public class Sliding : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKeyDown(slideKey) && (horizontalInput != 0 || verticalInput != 0))
+        if (Input.GetKey("left shift") && Input.GetKeyDown(slideKey) && (horizontalInput != 0 || verticalInput != 0))
             StartSlide();
 
         if (Input.GetKeyUp(slideKey) && pm.sliding)
@@ -68,8 +71,8 @@ public class Sliding : MonoBehaviour
         slideTimer = maxSlideTime;
        
         tilt = Mathf.Lerp(tilt, -camTilt, camTiltTime * Time.deltaTime);
-        
         cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, slidefov, slidefovTime * Time.deltaTime);
+        ArmsAnimator.SetBool("isSliding", true);
     }
 
     private void SlidingMovement()
@@ -101,5 +104,6 @@ public class Sliding : MonoBehaviour
         playerObj.localScale = new Vector3(playerObj.localScale.x, startYScale, playerObj.localScale.z);
         tilt = 0f;
         cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, 60f, slidefovTime * Time.deltaTime);
+        ArmsAnimator.SetBool("isSliding", false);
     }
 }
