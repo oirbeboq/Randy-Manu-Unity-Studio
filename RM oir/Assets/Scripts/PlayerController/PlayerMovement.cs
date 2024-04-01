@@ -102,6 +102,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         ArmsAnimator = Arms.GetComponent<Animator>();
+        checkPoint = transform.position;
     }
     private void Start()
     {
@@ -441,5 +442,10 @@ public class PlayerMovement : MonoBehaviour
             rb.drag = groundDrag;
             cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, runfov, runfovTime * Time.deltaTime);
         } 
+    }
+
+    public void LoadCheckPoint()
+    {
+        transform.position = checkPoint;
     }
 }
