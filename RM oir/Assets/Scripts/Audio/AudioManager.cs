@@ -25,5 +25,6 @@ public class AudioManager : MonoBehaviour
         
         MusicSource.clip = BackgroundSound;
         MusicSource.Play();
+
     }
 }

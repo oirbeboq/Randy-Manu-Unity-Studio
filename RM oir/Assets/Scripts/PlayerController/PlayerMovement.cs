@@ -46,6 +46,15 @@ public class PlayerMovement : MonoBehaviour
     private RaycastHit slopeHit;
     private bool exitingSlope;
 
+    [Header("Camera")]
+    [SerializeField] public Camera cam;
+    [SerializeField] private float fov;
+    [SerializeField] private float runfov = 85;
+    [SerializeField] private float runfovTime = 10;
+    [SerializeField] private float walkfov = 70;
+    [SerializeField] private float walkfovTime = 10;
+
+
 
     public Transform orientation;
 
@@ -419,13 +428,15 @@ public class PlayerMovement : MonoBehaviour
             ArmsAnimator.SetFloat("Speed", 0.5f, 0.1f, Time.deltaTime);
             desiredMoveSpeed = walkSpeed;
             rb.drag = groundDrag;
+            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, walkfov, walkfovTime * Time.deltaTime);
         }
         else if (moveDirection != Vector3.zero
             && Input.GetKey(sprintKey))
         {
             ArmsAnimator.SetFloat("Speed", 1.0f, 0.1f, Time.deltaTime);
             desiredMoveSpeed = sprintSpeed;
-            rb.drag = groundDrag;               
+            rb.drag = groundDrag;
+            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, runfov, runfovTime * Time.deltaTime);
         } 
     }
 }

@@ -1920,6 +1920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallRun: {fileID: 364801490}
+  slide: {fileID: 364801494}
   sensX: 150
   sensY: 150
   cam: {fileID: 9641728}
@@ -1937,14 +1938,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idleSpeed: 0
-  walkSpeed: 9
-  sprintSpeed: 15
+  walkSpeed: 8
+  sprintSpeed: 14
   slideSpeed: 0
   dashSpeed: 20
   dashSpeedChangeFactor: 0
   maxYSpeed: 0
   groundDrag: 4
-  jumpForce: 20
+  jumpForce: 25
   jumpCooldown: 0.25
   airMultiplier: 0.4
   jumping: 0
@@ -1960,6 +1961,12 @@ MonoBehaviour:
     m_Bits: 8
   grounded: 0
   maxSlopeAngle: 35
+  cam: {fileID: 817330662}
+  fov: 0
+  runfov: 75
+  runfovTime: 10
+  walkfov: 65
+  walkfovTime: 10
   orientation: {fileID: 1556507424}
   state: 0
   dashing: 0
@@ -2013,7 +2020,10 @@ MonoBehaviour:
   slideYScale: 0.3
   slideKey: 101
   cam: {fileID: 817330662}
-  camTilt: 10
+  fov: 60
+  slidefov: 110
+  slidefovTime: 10
+  camTilt: 50
   camTiltTime: 10
 --- !u!1 &389610621 stripped
 GameObject:
@@ -6169,9 +6179,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e058db2eab191964fb25f2c7397741a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MusicSource: {fileID: 1797339251}
+  MusicSource: {fileID: 0}
   SFXSource: {fileID: 0}
-  BackgroundSound: {fileID: 8300000, guid: 63dd435eac9cb72468ecfe23b054bace, type: 3}
+  BackgroundSound: {fileID: 8300000, guid: e147f3d4798a85048a44e512460e7394, type: 3}
 --- !u!4 &1242945672
 Transform:
   m_ObjectHideFlags: 0
@@ -8667,9 +8677,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: e147f3d4798a85048a44e512460e7394, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.941
   m_Pitch: 1
   Loop: 1
   Mute: 0

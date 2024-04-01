@@ -21,10 +21,15 @@ public class Sliding : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
 
-    public float tilt { get; private set; }
+    [Header("Camera")]
     [SerializeField] public Camera cam;
+    [SerializeField] private float fov;
+    [SerializeField] private float slidefov;
+    [SerializeField] private float slidefovTime;
     [SerializeField] private float camTilt;
     [SerializeField] private float camTiltTime;
+
+    public float tilt { get; private set; }
 
 
     private void Start()
@@ -61,8 +66,10 @@ public class Sliding : MonoBehaviour
         rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
 
         slideTimer = maxSlideTime;
-
+       
         tilt = Mathf.Lerp(tilt, -camTilt, camTiltTime * Time.deltaTime);
+        
+        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, slidefov, slidefovTime * Time.deltaTime);
     }
 
     private void SlidingMovement()
@@ -92,6 +99,7 @@ public class Sliding : MonoBehaviour
         pm.sliding = false;
 
         playerObj.localScale = new Vector3(playerObj.localScale.x, startYScale, playerObj.localScale.z);
-        tilt = Mathf.Lerp(tilt, 0, camTiltTime * Time.deltaTime);
+        tilt = 0f;
+        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, 60f, slidefovTime * Time.deltaTime);
     }
 }
