@@ -18,6 +18,7 @@ public class Sliding : MonoBehaviour
 
     [Header("Input")]
     public KeyCode slideKey = KeyCode.LeftControl;
+    public KeyCode jumpKey = KeyCode.Space;
     private float horizontalInput;
     private float verticalInput;
 
@@ -33,6 +34,8 @@ public class Sliding : MonoBehaviour
 
     public GameObject Arms;
     Animator ArmsAnimator;
+
+    private PlayerLook playerLook;
 
     private void Start()
     {
@@ -76,6 +79,12 @@ public class Sliding : MonoBehaviour
         tilt = Mathf.Lerp(tilt, -camTilt, camTiltTime * Time.deltaTime);
         cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, slidefov, slidefovTime * Time.deltaTime);
         ArmsAnimator.SetBool("isSliding", true);
+       
+
+        //if(Input.GetKey(jumpKey))
+        //{
+        //    ArmsAnimator.SetBool("isSliding", false);
+        //}
     }
 
     private void SlidingMovement()

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.LowLevel;
 
 public class WallRun : MonoBehaviour
 {
@@ -34,6 +35,10 @@ public class WallRun : MonoBehaviour
     private Rigidbody rb;
     public static bool canFov;
 
+    public GameObject Arms;
+    Animator ArmsAnimator;
+
+    PlayerLook playerLook;
     bool CanWallRun()
     {
         return !Physics.Raycast(transform.position, Vector3.down, minimumJumpHeight);
@@ -84,11 +89,13 @@ public class WallRun : MonoBehaviour
         rb.AddForce(Vector3.down * wallRunGravity, ForceMode.Force);
 
         cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, wallRunfov, wallRunfovTime * Time.deltaTime);
+      
 
         if (wallLeft)
             tilt = Mathf.Lerp(tilt, -camTilt, camTiltTime * Time.deltaTime);
         else if (wallRight)
             tilt = Mathf.Lerp(tilt, camTilt, camTiltTime * Time.deltaTime);
+       
 
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -116,5 +123,6 @@ public class WallRun : MonoBehaviour
         
 
         tilt = Mathf.Lerp(tilt, 0, camTiltTime * Time.deltaTime);
+ 
     }
 }
