@@ -1853,6 +1853,7 @@ GameObject:
   m_Component:
   - component: {fileID: 364801489}
   - component: {fileID: 364801493}
+  - component: {fileID: 364801495}
   - component: {fileID: 364801492}
   - component: {fileID: 364801491}
   - component: {fileID: 364801490}
@@ -2026,6 +2027,20 @@ MonoBehaviour:
   camTilt: 80
   camTiltTime: 10
   Arms: {fileID: 730259810}
+--- !u!114 &364801495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364801488}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6622b9adcc7467841b25a505ebc8ec2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallMultiplier: 2.5
+  lowMultiplier: 2
 --- !u!1 &389610621 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5886835368817038030, guid: a0417a864bf8ba64589d5b9d3ff07618, type: 3}
@@ -10404,7 +10419,7 @@ PrefabInstance:
     - target: {fileID: -8186318246472880109, guid: 9e50a4533e609ae4c965263ba3d0cf82, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2b2d8c0647236a34fa954059e4c9aee1, type: 2}
+      objectReference: {fileID: 2100000, guid: bbe1c9b34c09dc1498bc1718dbb28b26, type: 2}
     - target: {fileID: 919132149155446097, guid: 9e50a4533e609ae4c965263ba3d0cf82, type: 3}
       propertyPath: m_Name
       value: Hands
