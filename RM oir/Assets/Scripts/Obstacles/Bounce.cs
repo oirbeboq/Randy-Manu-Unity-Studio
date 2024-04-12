@@ -16,7 +16,6 @@ public class Bounce : MonoBehaviour
            
             if (collision.gameObject.tag == "Player")
             {
-                Debug.Log("Ouch");
                 hitDir = contact.normal;
                 collision.gameObject.GetComponent<PlayerMovement>().HitPlayer(-hitDir * force, stunTime);
                 return;

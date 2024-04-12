@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Camera")]
     [SerializeField] public Camera cam;
     [SerializeField] private float fov;
-    [SerializeField] private float runfov = 85;
+    [SerializeField] private float runfov = 150;
     [SerializeField] private float runfovTime = 10;
     [SerializeField] private float walkfov = 70;
     [SerializeField] private float walkfovTime = 10;
@@ -97,47 +97,6 @@ public class PlayerMovement : MonoBehaviour
         air
     }
 
-  
-
-    private void Awake()
-    {
-        ArmsAnimator = Arms.GetComponent<Animator>();
-        checkPoint = transform.position;
-    }
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-        rb.freezeRotation = true;
-
-        readyToJump = true;
-
-        startYScale = transform.localScale.y;
-    }
-
-    private void Update()
-    {
-        // ground check
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
-
-        MyInput();
-        SpeedControl();
-        StateHandler();
-        HandleAnimations();
-
-        // handle drag
-        if (state == MovementState.walking || state == MovementState.sprinting || state == MovementState.crouching)
-            rb.drag = groundDrag;
-        else
-            rb.drag = 0;
-
-     
-    }
-
-    private void FixedUpdate()
-    {
-        MovePlayer();
-    
-    }
 
     private void MyInput()
     {
@@ -447,5 +406,55 @@ public class PlayerMovement : MonoBehaviour
     public void LoadCheckPoint()
     {
         transform.position = checkPoint;
+    }
+    //public void Execute(Transform executionSource)
+    //{
+    //    KnockbackEntity(executionSource);
+    //}
+
+    //public void KnockbackEntity(Transform executionSource)
+    //{
+    //    Vector3 dir = (transform.position - executionSource.transform.position).normalized;
+    //    rb.AddForce(dir, ForceMode.Impulse);
+    //}
+
+    private void Awake()
+    {
+        ArmsAnimator = Arms.GetComponent<Animator>();
+        checkPoint = transform.position;
+    }
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
+
+        readyToJump = true;
+
+        startYScale = transform.localScale.y;
+    }
+
+    private void Update()
+    {
+        // ground check
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+
+        MyInput();
+        SpeedControl();
+        StateHandler();
+        HandleAnimations();
+
+        // handle drag
+        if (state == MovementState.walking || state == MovementState.sprinting || state == MovementState.crouching)
+            rb.drag = groundDrag;
+        else
+            rb.drag = 0;
+
+
+    }
+
+    private void FixedUpdate()
+    {
+        MovePlayer();
+
     }
 }
