@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using DG.Tweening;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -48,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
     private bool exitingSlope;
 
     [Header("Camera")]
-    [SerializeField] public Camera cam;
+    [SerializeField] public PlayerCam cam;
     [SerializeField] private float fov;
     [SerializeField] private float runfov = 150;
     [SerializeField] private float runfovTime = 10;
@@ -80,6 +81,7 @@ public class PlayerMovement : MonoBehaviour
     public float gravity = 10.0f;
 
     public bool sliding;
+    public bool idle;
 
     [Header("Animation")]
     public GameObject Arms;
@@ -136,10 +138,17 @@ public class PlayerMovement : MonoBehaviour
     private bool keepMomentum;
     private void StateHandler()
     {
+        if (idle)
+        {
+            state = MovementState.idle;
+            desiredMoveSpeed = idleSpeed;
+        }
+
         if (wallrunning)
         {
             state = MovementState.wallrunning;
             desiredMoveSpeed = wallrunspeed;
+
         }
         if (sliding)
         {
@@ -171,7 +180,7 @@ public class PlayerMovement : MonoBehaviour
         {
             state = MovementState.sprinting;
             desiredMoveSpeed = sprintSpeed;
-           
+
         }
 
         // Mode - Walking
@@ -306,7 +315,7 @@ public class PlayerMovement : MonoBehaviour
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
         ArmsAnimator.SetBool("isJumping", true);
-        CameraShake.Shake(0.5f, 0.5f);
+        //CameraShake.Shake(0.2f, 0.2f);
 
     }
     private void ResetJump()
@@ -399,7 +408,9 @@ public class PlayerMovement : MonoBehaviour
             ArmsAnimator.SetFloat("Speed", 0.5f, 0.1f, Time.deltaTime);
             desiredMoveSpeed = walkSpeed;
             rb.drag = groundDrag;
-            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, walkfov, walkfovTime * Time.deltaTime);
+            cam.DoFov(60f);
+
+            //cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, walkfov, walkfovTime * Time.deltaTime);
         }
         else if (moveDirection != Vector3.zero
             && Input.GetKey(sprintKey))
@@ -407,7 +418,9 @@ public class PlayerMovement : MonoBehaviour
             ArmsAnimator.SetFloat("Speed", 1.0f, 0.1f, Time.deltaTime);
             desiredMoveSpeed = sprintSpeed;
             rb.drag = groundDrag;
-            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, runfov, runfovTime * Time.deltaTime);
+            cam.DoFov(70f);
+      
+            //cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, runfov, runfovTime * Time.deltaTime);
         } 
     }
 

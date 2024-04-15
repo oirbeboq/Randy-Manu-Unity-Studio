@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class Sliding : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class Sliding : MonoBehaviour
     private float verticalInput;
 
     [Header("Camera")]
-    [SerializeField] public Camera cam;
+    [SerializeField] public PlayerCam cam;
     [SerializeField] private float fov;
     [SerializeField] private float slidefov;
     [SerializeField] private float slidefovTime;
@@ -35,13 +36,14 @@ public class Sliding : MonoBehaviour
     public GameObject Arms;
     Animator ArmsAnimator;
 
-    private PlayerLook playerLook;
-    private PlayerCam camm;
+    
+    
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         pm = GetComponent<PlayerMovement>();
+    
         ArmsAnimator = Arms.GetComponent<Animator>();
 
         startYScale = playerObj.localScale.y;
@@ -77,16 +79,17 @@ public class Sliding : MonoBehaviour
 
         slideTimer = maxSlideTime;
 
-        camm.DoTilt(-20f);
+        cam.DoTilt(-10f);
+        cam.DoFov(80f);
         //tilt = Mathf.Lerp(tilt, -camTilt, camTiltTime * Time.deltaTime);
-        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, slidefov, slidefovTime * Time.deltaTime);
+        //cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, slidefov, slidefovTime * Time.deltaTime);
         ArmsAnimator.SetBool("isSliding", true);
-       
 
-        //if(Input.GetKey(jumpKey))
-        //{
-        //    ArmsAnimator.SetBool("isSliding", false);
-        //}
+
+        if (Input.GetKey(jumpKey))
+        {
+            cam.DoTilt(0f);
+        }
     }
 
     private void SlidingMovement()
@@ -116,9 +119,10 @@ public class Sliding : MonoBehaviour
         pm.sliding = false;
 
         playerObj.localScale = new Vector3(playerObj.localScale.x, startYScale, playerObj.localScale.z);
-        camm.DoTilt(-20f);
+        cam.DoTilt(0f);
+        cam.DoFov(60f);
         //tilt = 0f;
-        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, 60f, slidefovTime * Time.deltaTime);
+        //cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, 60f, slidefovTime * Time.deltaTime);
         ArmsAnimator.SetBool("isSliding", false);
     }
 }
