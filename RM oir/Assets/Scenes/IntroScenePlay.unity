@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.77117455, g: 0.9101084, b: 0.995905, a: 1}
+  m_IndirectSpecularColor: {r: 0.77117527, g: 0.9100974, b: 0.9959069, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1958,6 +1958,8 @@ GameObject:
   - component: {fileID: 364801489}
   - component: {fileID: 364801493}
   - component: {fileID: 364801492}
+  - component: {fileID: 364801495}
+  - component: {fileID: 364801496}
   - component: {fileID: 364801491}
   - component: {fileID: 364801490}
   - component: {fileID: 364801494}
@@ -2019,7 +2021,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 364801488}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04d930f04258a5f4996467cf43210ac2, type: 3}
   m_Name: 
@@ -2046,6 +2048,7 @@ MonoBehaviour:
   walkSpeed: 8
   sprintSpeed: 14
   slideSpeed: 0
+  wallrunspeed: 0
   dashSpeed: 20
   dashSpeedChangeFactor: 0
   maxYSpeed: 0
@@ -2079,6 +2082,7 @@ MonoBehaviour:
   sliding: 0
   Arms: {fileID: 730259810}
   state: 0
+  wallrunning: 0
 --- !u!54 &364801493
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2123,7 +2127,7 @@ MonoBehaviour:
   maxSlideTime: 0.75
   slideForce: 200
   slideYScale: 0.1
-  slideKey: 101
+  slideKey: 99
   jumpKey: 32
   cam: {fileID: 817330662}
   fov: 60
@@ -2132,6 +2136,55 @@ MonoBehaviour:
   camTilt: 70
   camTiltTime: 10
   Arms: {fileID: 730259810}
+--- !u!114 &364801495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364801488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93204747cfbccd74ba5061738c0917a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensX: 150
+  sensY: 150
+  orientation: {fileID: 1556507424}
+  camHolder: {fileID: 9641728}
+--- !u!114 &364801496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364801488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a7c59784897b5e45bfec320f93ef7b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whatIsWall:
+    serializedVersion: 2
+    m_Bits: 2056
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 8
+  wallRunForce: 10
+  wallJumpUpForce: 10
+  wallJumpSideForce: 10
+  wallClimbSpeed: 0
+  maxWallRunTime: 2
+  jumpKey: 32
+  upwardsRunKey: 304
+  downwardsRunKey: 306
+  wallCheckDistance: 0
+  minJumpHeight: 0
+  exitWallTime: 0
+  useGravity: 0
+  gravityCounterForce: 0
+  orientation: {fileID: 1556507424}
+  cam: {fileID: 364801495}
 --- !u!1 &389610621 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5886835368817038030, guid: a0417a864bf8ba64589d5b9d3ff07618, type: 3}
@@ -6231,7 +6284,7 @@ GameObject:
   - component: {fileID: 1139254400}
   - component: {fileID: 1139254399}
   - component: {fileID: 1139254398}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Box_1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9135,7 +9188,7 @@ GameObject:
   - component: {fileID: 1605414683}
   - component: {fileID: 1605414682}
   - component: {fileID: 1605414681}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Box_1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

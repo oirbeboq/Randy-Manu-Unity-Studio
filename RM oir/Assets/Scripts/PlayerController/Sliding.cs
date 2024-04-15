@@ -36,6 +36,7 @@ public class Sliding : MonoBehaviour
     Animator ArmsAnimator;
 
     private PlayerLook playerLook;
+    private PlayerCam camm;
 
     private void Start()
     {
@@ -75,8 +76,9 @@ public class Sliding : MonoBehaviour
         rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
 
         slideTimer = maxSlideTime;
-       
-        tilt = Mathf.Lerp(tilt, -camTilt, camTiltTime * Time.deltaTime);
+
+        camm.DoTilt(-20f);
+        //tilt = Mathf.Lerp(tilt, -camTilt, camTiltTime * Time.deltaTime);
         cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, slidefov, slidefovTime * Time.deltaTime);
         ArmsAnimator.SetBool("isSliding", true);
        
@@ -114,7 +116,8 @@ public class Sliding : MonoBehaviour
         pm.sliding = false;
 
         playerObj.localScale = new Vector3(playerObj.localScale.x, startYScale, playerObj.localScale.z);
-        tilt = 0f;
+        camm.DoTilt(-20f);
+        //tilt = 0f;
         cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, 60f, slidefovTime * Time.deltaTime);
         ArmsAnimator.SetBool("isSliding", false);
     }
