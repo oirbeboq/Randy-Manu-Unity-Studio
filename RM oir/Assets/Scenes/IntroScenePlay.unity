@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.77117455, g: 0.9101084, b: 0.995905, a: 1}
+  m_IndirectSpecularColor: {r: 0.77117527, g: 0.9100974, b: 0.9959069, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2128,7 +2128,7 @@ MonoBehaviour:
   dashSpeedChangeFactor: 0
   maxYSpeed: 0
   groundDrag: 4
-  jumpForce: 15
+  jumpForce: 20
   jumpCooldown: 0.25
   airMultiplier: 0.4
   jumping: 0
@@ -13074,8 +13074,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93204747cfbccd74ba5061738c0917a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensX: 150
-  sensY: 150
+  sensX: 300
+  sensY: 300
   orientation: {fileID: 356716916}
   camHolder: {fileID: 1267417775}
 --- !u!114 &2069554468
