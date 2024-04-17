@@ -730,7 +730,7 @@ MonoBehaviour:
   wallRun: {fileID: 324839065}
   slide: {fileID: 324839064}
   sensX: 150
-  sensY: 150
+  sensY: 200
   cam: {fileID: 817248454}
   orientation: {fileID: 1543096961}
 --- !u!114 &324839067
@@ -753,7 +753,7 @@ MonoBehaviour:
     m_Bits: 8
   wallRunForce: 200
   wallJumpUpForce: 20
-  wallJumpSideForce: 12
+  wallJumpSideForce: 200
   wallClimbSpeed: 3
   maxWallRunTime: 1.5
   jumpKey: 32
@@ -762,7 +762,7 @@ MonoBehaviour:
   wallCheckDistance: 0.7
   minJumpHeight: 2
   exitWallTime: 0.2
-  useGravity: 0
+  useGravity: 1
   gravityCounterForce: 0
   orientation: {fileID: 1543096961}
   cam: {fileID: 2104501083}
@@ -803,7 +803,7 @@ MonoBehaviour:
   dashSpeedChangeFactor: 0
   maxYSpeed: 0
   groundDrag: 4
-  jumpForce: 15
+  jumpForce: 18
   jumpCooldown: 0.25
   airMultiplier: 0.4
   jumping: 0
@@ -12392,7 +12392,7 @@ Transform:
   m_GameObject: {fileID: 1553441999}
   serializedVersion: 2
   m_LocalRotation: {x: 0.9967181, y: 0.0023878065, z: -0.080915056, w: 0.00019382451}
-  m_LocalPosition: {x: -20.988243, y: 12.188845, z: 16.430641}
+  m_LocalPosition: {x: -24.93, y: 12.17, z: 17.07}
   m_LocalScale: {x: 20, y: 148.66003, z: 120.000015}
   m_ConstrainProportionsScale: 0
   m_Children: []
