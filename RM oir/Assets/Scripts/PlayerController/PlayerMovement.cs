@@ -83,6 +83,8 @@ public class PlayerMovement : MonoBehaviour
     public bool sliding;
     public bool idle;
 
+   [SerializeField] ParticleSystem SpeedLines;
+
     [Header("Animation")]
     public GameObject Arms;
     Animator ArmsAnimator;
@@ -401,6 +403,7 @@ public class PlayerMovement : MonoBehaviour
             ArmsAnimator.SetFloat("Speed", 0f, 0.1f, Time.deltaTime);
             desiredMoveSpeed = idleSpeed;
             rb.drag = groundDrag;
+            SpeedLines.Stop();
         }
         else if(moveDirection != Vector3.zero
             && !Input.GetKey(sprintKey))
@@ -409,6 +412,7 @@ public class PlayerMovement : MonoBehaviour
             desiredMoveSpeed = walkSpeed;
             rb.drag = groundDrag;
             cam.DoFov(60f);
+            SpeedLines.Stop();
 
             //cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, walkfov, walkfovTime * Time.deltaTime);
         }
@@ -419,6 +423,8 @@ public class PlayerMovement : MonoBehaviour
             desiredMoveSpeed = sprintSpeed;
             rb.drag = groundDrag;
             cam.DoFov(70f);
+            SpeedLines.Play();
+            
       
             //cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, runfov, runfovTime * Time.deltaTime);
         } 
@@ -443,6 +449,9 @@ public class PlayerMovement : MonoBehaviour
     {
         ArmsAnimator = Arms.GetComponent<Animator>();
         checkPoint = transform.position;
+        
+        
+        
     }
     private void Start()
     {
