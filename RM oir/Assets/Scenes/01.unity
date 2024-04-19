@@ -5633,9 +5633,9 @@ MonoBehaviour:
   dashSpeedChangeFactor: 0
   maxYSpeed: 0
   groundDrag: 4
-  jumpForce: 15
+  jumpForce: 20
   jumpCooldown: 0.25
-  airMultiplier: 0.4
+  airMultiplier: 3
   jumping: 0
   readyToJump: 1
   crouchSpeed: 3.5
@@ -11951,7 +11951,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!199 &1287236959
 ParticleSystemRenderer:
   serializedVersion: 6

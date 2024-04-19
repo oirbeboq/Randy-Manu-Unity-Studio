@@ -2078,7 +2078,7 @@ MonoBehaviour:
     m_Bits: 8
   wallRunForce: 180
   wallJumpUpForce: 40
-  wallJumpSideForce: 12
+  wallJumpSideForce: 20
   wallClimbSpeed: 3
   maxWallRunTime: 1.5
   jumpKey: 32
@@ -2130,7 +2130,7 @@ MonoBehaviour:
   groundDrag: 4
   jumpForce: 20
   jumpCooldown: 0.25
-  airMultiplier: 0.4
+  airMultiplier: 3
   jumping: 0
   readyToJump: 1
   crouchSpeed: 3.5
@@ -2156,6 +2156,7 @@ MonoBehaviour:
   gravity: 10
   sliding: 0
   idle: 0
+  SpeedLines: {fileID: 0}
   Arms: {fileID: 2069174050}
   state: 0
   wallrunning: 0

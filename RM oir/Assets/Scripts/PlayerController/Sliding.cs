@@ -81,15 +81,7 @@ public class Sliding : MonoBehaviour
 
         cam.DoTilt(-10f);
         cam.DoFov(80f);
-        //tilt = Mathf.Lerp(tilt, -camTilt, camTiltTime * Time.deltaTime);
-        //cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, slidefov, slidefovTime * Time.deltaTime);
         ArmsAnimator.SetBool("isSliding", true);
-
-
-        if (Input.GetKey(jumpKey))
-        {
-            cam.DoTilt(0f);
-        }
     }
 
     private void SlidingMovement()
