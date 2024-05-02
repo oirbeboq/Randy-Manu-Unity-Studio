@@ -21,7 +21,7 @@ TagManager:
   - grappling
   - weapon
   - Wall
-  - 
+  - SpeedLine
   - 
   - 
   - 
@@ -44,4 +44,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Lines
+    uniqueID: 1351131205
     locked: 0

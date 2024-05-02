@@ -398,37 +398,45 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleAnimations()
     {
-        if(moveDirection == Vector3.zero)
-        {
-            ArmsAnimator.SetFloat("Speed", 0f, 0.1f, Time.deltaTime);
-            desiredMoveSpeed = idleSpeed;
-            rb.drag = groundDrag;
-            SpeedLines.Stop();
-        }
-        else if(moveDirection != Vector3.zero
-            && !Input.GetKey(sprintKey))
-        {
-            ArmsAnimator.SetFloat("Speed", 0.5f, 0.1f, Time.deltaTime);
-            desiredMoveSpeed = walkSpeed;
-            rb.drag = groundDrag;
-            cam.DoFov(60f);
-            SpeedLines.Stop();
 
-            //cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, walkfov, walkfovTime * Time.deltaTime);
-        }
-        else if (moveDirection != Vector3.zero
+        if (moveDirection != Vector3.zero
             && Input.GetKey(sprintKey))
         {
             ArmsAnimator.SetFloat("Speed", 1.0f, 0.1f, Time.deltaTime);
             desiredMoveSpeed = sprintSpeed;
             rb.drag = groundDrag;
             cam.DoFov(70f);
-            SpeedLines.Play();
-            
-      
+            SpeedLines.gameObject.SetActive(true);  
+
+
+
+
+
             //cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, runfov, runfovTime * Time.deltaTime);
-        } 
-    }
+        }
+        else if (moveDirection == Vector3.zero)
+        {
+            ArmsAnimator.SetFloat("Speed", 0f, 0.1f, Time.deltaTime);
+            desiredMoveSpeed = idleSpeed;
+            rb.drag = groundDrag;
+            SpeedLines.gameObject.SetActive(false);
+
+
+
+        }
+        else if (moveDirection != Vector3.zero
+            && !Input.GetKey(sprintKey))
+        {
+            ArmsAnimator.SetFloat("Speed", 0.5f, 0.1f, Time.deltaTime);
+            desiredMoveSpeed = walkSpeed;
+            rb.drag = groundDrag;
+            cam.DoFov(60f);
+            SpeedLines.gameObject.SetActive(false);
+
+
+        }
+       
+        }
 
     public void LoadCheckPoint()
     {
@@ -449,6 +457,7 @@ public class PlayerMovement : MonoBehaviour
     {
         ArmsAnimator = Arms.GetComponent<Animator>();
         checkPoint = transform.position;
+        SpeedLines.gameObject.SetActive(false);
         
         
         
