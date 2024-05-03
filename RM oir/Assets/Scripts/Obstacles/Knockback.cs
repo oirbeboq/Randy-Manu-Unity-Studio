@@ -1,16 +1,23 @@
-//using System.Collections;
-//using UnityEngine;
+using System.Collections;
+using UnityEngine;
 
-//void OnCollisionEnter(Collision collision)
-//{
-//    foreach (ContactPoint contact in collision.contacts)
-//    {
-//        Debug.DrawRay(contact.point, contact.normal, Color.red);
+public class Knockback: MonoBehaviour
+{
+    public float radius;
+    public float force;
 
-//        if (collision.gameObject.tag == "Player")
-//        {
-//            IHitable hit = 
-//        }
-//    }
+    private void Update()
+    {
+        Vector3 effectorPos = transform.position;
+        Collider[] colliders = Physics.OverlapSphere(effectorPos, radius);  
 
-//}
+        foreach (Collider hit in colliders) {
+            Rigidbody rb = hit.GetComponent<Rigidbody>();
+
+            if (rb != null)
+            {
+                rb.AddExplosionForce(force * Time.deltaTime, effectorPos, radius);
+            }
+        }
+    }
+}

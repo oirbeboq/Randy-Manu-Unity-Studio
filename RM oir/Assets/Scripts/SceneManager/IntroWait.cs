@@ -18,4 +18,13 @@ public class IntroWait : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         SceneManager.LoadScene(Scenename);
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene(Scenename);
+
+        }
+    }
 }
